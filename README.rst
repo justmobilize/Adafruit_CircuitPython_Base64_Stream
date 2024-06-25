@@ -21,8 +21,7 @@ Introduction
     :target: https://github.com/psf/black
     :alt: Code Style: Black
 
-
-.. todo:: Describe what the library does.
+A wrapper around a file stream that will return the data as base64 when read
 
 
 Dependencies
@@ -38,19 +37,10 @@ or individual libraries can be installed using
 `circup <https://github.com/adafruit/circup>`_.
 
 
-
-.. todo:: Describe the Adafruit product this library works with. For PCBs, you can also add the
-image from the assets folder in the PCB's GitHub repo.
-
 `Purchase one from the Adafruit shop <http://www.adafruit.com/products/>`_
 
 Installing from PyPI
 =====================
-.. note:: This library is not available on PyPI yet. Install documentation is included
-   as a standard element. Stay tuned for PyPI availability!
-
-.. todo:: Remove the above note if PyPI version is/will be available at time of release.
-
 On supported GNU/Linux systems like the Raspberry Pi, you can install the driver locally `from
 PyPI <https://pypi.org/project/adafruit-circuitpython-base64-stream/>`_.
 To install for current user:
@@ -100,8 +90,17 @@ Or the following command to update an existing version:
 Usage Example
 =============
 
-.. todo:: Add a quick, simple example. It and other examples should live in the
-examples folder and be included in docs/examples.rst.
+.. code-block:: python
+
+    from adafruit_base64_stream import Base64Stream
+
+    with open("image.png", "rb") as file_handle:
+        wrapped_file_handle = Base64Stream(file_handle)
+        while True:
+        encoded_data = wrapped_file_handle.read(12)
+            if not encoded_data:
+                break
+            print(encoded_data)
 
 Documentation
 =============
