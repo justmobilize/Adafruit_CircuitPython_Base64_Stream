@@ -5,7 +5,7 @@
 
 from adafruit_base64_stream import Base64Stream
 
-with open("image.png", "rb") as file_handle:
+with open("green_red.png", "rb") as file_handle:
     wrapped_file_handle = Base64Stream(file_handle)
     while True:
         encoded_data = wrapped_file_handle.read(12)
